@@ -1,0 +1,16 @@
+{
+  "name": "tutorial",
+  "version": "1.0.0",
+  "description": "React 프론트엔드와 Node.js 백엔드로 구성된 Todo 앱입니다.",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm install --prefix backend --legacy-peer-deps && npm install --prefix frontend --legacy-peer-deps && concurrently \"npm start --prefix backend\" \"npm start --prefix frontend\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^9.2.0"
+  }
+}

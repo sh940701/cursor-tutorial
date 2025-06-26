@@ -1,0 +1,357 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .alert {
+    @apply fixed top-5 right-5 px-5 py-4 rounded-lg text-white font-bold z-50 animate-slide-in;
+  }
+  
+  .alert.success {
+    @apply bg-green-500;
+  }
+  
+  .alert.warning {
+    @apply bg-yellow-500 text-gray-900;
+  }
+  
+  .alert.error {
+    @apply bg-red-500;
+  }
+  
+  .alert.info {
+    @apply bg-blue-500;
+  }
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-in {
+  animation: slide-in 0.3s ease-out;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #1E40AF;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.header {
+  background: #1E40AF;
+  color: white;
+  padding: 30px;
+  text-align: center;
+}
+
+.header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.input-section {
+  padding: 30px;
+  border-bottom: 1px solid #eee;
+}
+
+.todo-input-group {
+  display: flex;
+  gap: 10px;
+}
+
+.todo-input {
+  flex: 1;
+  padding: 15px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: border-color 0.3s;
+}
+
+.todo-input:focus {
+  outline: none;
+  border-color: #3B82F6;
+}
+
+.add-btn {
+  padding: 15px 25px;
+  background: #1E40AF;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: transform 0.2s;
+}
+
+.add-btn:hover {
+  transform: translateY(-2px);
+}
+
+.todo-list {
+  padding: 20px 30px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  margin-bottom: 10px;
+  background: white;
+  border-radius: 8px;
+  border-left: 4px solid #3B82F6;
+  transition: all 0.3s;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.todo-item:hover {
+  transform: translateX(5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.todo-item.completed {
+  opacity: 0.6;
+  border-left-color: #28a745;
+}
+
+.todo-item.completed .todo-text {
+  text-decoration: line-through;
+  color: #6c757d;
+}
+
+.todo-checkbox {
+  margin-right: 15px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.todo-text {
+  flex: 1;
+  font-size: 16px;
+  color: #333;
+}
+
+.todo-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.edit-btn, .delete-btn {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s;
+}
+
+.edit-btn {
+  background: #ffc107;
+  color: #212529;
+}
+
+.edit-btn:hover {
+  background: #e0a800;
+}
+
+.delete-btn {
+  background: #dc3545;
+  color: white;
+}
+
+.delete-btn:hover {
+  background: #c82333;
+}
+
+.stats {
+  padding: 20px 30px;
+  background: #F8FAFC;
+  border-top: 1px solid #E2E8F0;
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  color: #64748B;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 40px;
+  color: #6c757d;
+}
+
+.empty-state div {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  opacity: 0.3;
+}
+
+.action-buttons {
+  padding: 20px 30px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.clear-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s;
+  background: #6c757d;
+  color: white;
+}
+
+.clear-btn:hover {
+  background: #5a6268;
+}
+
+.clear-completed-btn {
+  background: #fd7e14;
+}
+
+.clear-completed-btn:hover {
+  background: #e8690b;
+}
+
+.wave-hover-bg {
+  transition: background-position 1.5s cubic-bezier(0.4,0.2,0.2,1);
+  background: none;
+}
+.group:hover .wave-hover-bg {
+  background-position: 60% 60% !important;
+}
+
+.wave-clip {
+  clip-path: path('M0,80 Q360,160 720,80 T1440,80 V320H0Z');
+}
+.wave-clip:hover {
+  animation: waveMove 2s infinite alternate ease-in-out;
+}
+@keyframes waveMove {
+  0% { clip-path: path('M0,80 Q360,160 720,80 T1440,80 V320H0Z'); }
+  100% { clip-path: path('M0,100 Q360,60 720,100 T1440,100 V320H0Z'); }
+}
+
+.wave-wrap {
+  width: 500px;
+  height: 500px;
+  position: relative;
+  border-radius: 50%;
+  overflow: hidden;
+  background: transparent;
+}
+.wave {
+  width: 700px;
+  height: 700px;
+  position: absolute;
+  top: 60%;
+  left: -100px;
+  border-radius: 43%;
+  background: linear-gradient(90deg, #38bdf8 60%, #2563eb 100%);
+  opacity: 0.7;
+}
+.wave1 {
+  animation: drift 6s infinite linear;
+}
+.wave2 {
+  animation: drift 10s infinite linear;
+  opacity: 0.5;
+}
+@keyframes drift {
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+.wave-svg-1 {
+  animation: waveMove1 5s infinite linear alternate;
+}
+.wave-svg-2 {
+  animation: waveMove2 7s infinite linear alternate;
+}
+@keyframes waveMove1 {
+  0% { d: path('M0,100 Q150,150 300,100 T600,100 V200H0Z'); }
+  100% { d: path('M0,100 Q150,80 300,120 T600,100 V200H0Z'); }
+}
+@keyframes waveMove2 {
+  0% { d: path('M0,110 Q150,60 300,110 T600,110 V200H0Z'); }
+  100% { d: path('M0,110 Q150,120 300,90 T600,110 V200H0Z'); }
+}
+/* Fallback: transform으로 좌우로 움직임 */
+@media (not all and (min-resolution:.001dpcm)) {
+  .wave-svg-1 { animation: waveTrans1 5s infinite linear alternate; }
+  .wave-svg-2 { animation: waveTrans2 7s infinite linear alternate; }
+  @keyframes waveTrans1 { 0% { transform: translateX(0); } 100% { transform: translateX(30px); } }
+  @keyframes waveTrans2 { 0% { transform: translateX(0); } 100% { transform: translateX(-30px); } }
+}
+
+.ripple-effect {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: rgba(56, 189, 248, 0.45); /* Slightly more visible on image */
+  pointer-events: none;
+  transform: scale(0.2);
+  opacity: 0.8;
+  animation: ripple-anim 0.7s cubic-bezier(0.4,0,0.2,1);
+  z-index: 30;
+}
+
+@keyframes ripple-anim {
+  to {
+    transform: scale(1.2);
+    opacity: 0;
+  }
+}
+
+.app-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.15);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.waterwave-bg {
+  width: 100vw;
+  height: 100vh;
+  position: fixed !important;
+  left: 0;
+  top: 0;
+  z-index: 0;
+  background-image: url('/public/water-drops.jpg');
+  background-size: cover;
+  background-position: center;
+} 
